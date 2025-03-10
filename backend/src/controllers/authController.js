@@ -9,13 +9,16 @@ const cloudinary = require("cloudinary").v2;
 
 
 // Secret key for JWT
-const JWT_SECRET = process.env.JWT_SECRET; 
+const JWT_SECRET = process.env.JWT_SECRET;
+
+
 
 // Configure Cloudinary
 cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  cloud_name:  process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
+  api_secret:  process.env.CLOUDINARY_API_SECRET,
+
 });
 
 // Configure Multer (for handling file uploads)
@@ -44,6 +47,8 @@ const patientRegister = async (req, res) => {
         patient_medications,
         patient_allergies,
         patient_disabilities,
+        patient_height,
+        patient_weight
        } = req.body;
   
 
@@ -96,6 +101,8 @@ const patientRegister = async (req, res) => {
         patient_medications,
         patient_allergies,
         patient_disabilities,
+        patient_height,
+        patient_weight,
         patient_prevMedicalReports: uploadedFiles, // Store array of uploaded file URLs
       });
   
