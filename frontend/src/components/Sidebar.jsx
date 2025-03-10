@@ -30,7 +30,7 @@ const Sidebar = () => {
       </div>
       <div className="flex flex-col items-center">
         <SidebarIcon icon={<FaHome size="20" />} text="Dashboard" to="/dashboard" />
-        <SidebarIcon icon={<FaCalendarAlt size="20" />} text="Appointments" to="/appointments" />
+        <SidebarIcon icon={<FaCalendarAlt size="20" />} text="Appointments" to="/my-appointments" />
         <SidebarIcon icon={<FaHistory size="20" />} text="Medical History" to="/medical-history" />
         <SidebarIcon icon={<FaPrescriptionBottleAlt size="20" />} text="Prescriptions" to="/prescriptions" />
         <SidebarIcon icon={<FaFileInvoiceDollar size="20" />} text="Billing" to="/billing" />
