@@ -5,6 +5,9 @@ import "react-toastify/dist/ReactToastify.css";
 
 const BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL;
 
+
+
+
 const Input = ({ label, name, type = "text", icon: Icon, value, onChange }) => {
   return (
     <div className="mb-4 flex items-center bg-white shadow rounded-lg border border-[#66D2CE] p-3">
@@ -257,8 +260,8 @@ const PatientRegistration = () => {
                   <Input label="Medications *" name="patient_medications" icon={FileText} value={formData.patient_medications} onChange={handleChange} />
                   <Input label="Allergies *" name="patient_allergies" icon={AlertTriangle} value={formData.patient_allergies} onChange={handleChange} />
                   <Input label="Disabilities *" name="patient_disabilities" icon={AlertTriangle} value={formData.patient_disabilities} onChange={handleChange} />
-                  <Input label="Height *" name="patient_height" icon={FileText} value={formData.patient_height} onChange={handleChange} />
-                  <Input label="Weight *" name="patient_weight" icon={FileText} value={formData.patient_weight} onChange={handleChange} />
+                  {/* <Input label="Height *" name="patient_height" icon={FileText} value={formData.patient_height} onChange={handleChange} />
+                  <Input label="Weight *" name="patient_weight" icon={FileText} value={formData.patient_weight} onChange={handleChange} /> */}
                   
                   <div className="mb-4 flex items-center bg-white rounded-lg border border-[#66D2CE] p-2 overflow-hidden">
                     <label htmlFor="patient_prevMedicalReports" className="cursor-pointer bg-white py-2 rounded-md flex items-center">
