@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import Sidebar from './components/Sidebar'
 import Navbar from './components/Navbar'
 import Dashboard from './pages/Dashboard'
-import Appointments from './pages/Appointments'
 import MedicalHistory from './pages/MedicalHistory'
 import Prescriptions from './pages/Prescriptions'
 import Profile from './pages/Profile'
@@ -11,6 +10,9 @@ import Billing from './pages/Billing'
 import PatientLogin from './pages/PatientLogin'
 import PatientRegistration from './pages/PatientRegistration' 
 import ChatApp from './pages/ChatApp'; 
+import AppointmentBooking from "./pages/AppointmentBooking"; 
+import MyAppointments from "./pages/MyAppointments";
+
 function App() {
   const [darkMode, setDarkMode] = useState(false)
 
@@ -40,7 +42,8 @@ function AppContent({ darkMode, toggleDarkMode }) {
             <Route path="/" element={<PatientLogin />} /> {/* Set PatientLogin as the default route */}
             <Route path="/register" element={<PatientRegistration />} /> {/* Add PatientRegistration route */}
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/appointments" element={<Appointments />} />
+            <Route path="/appointments" element={<AppointmentBooking darkMode={darkMode} />} />
+            <Route path="/my-appointments" element={<MyAppointments darkMode={darkMode}/>} />
             <Route path="/medical-history" element={<MedicalHistory />} />
             <Route path="/prescriptions" element={<Prescriptions />} />
               <Route path="/profile" element={<Profile />} />
