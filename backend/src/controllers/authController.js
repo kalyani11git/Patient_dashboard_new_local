@@ -56,7 +56,7 @@ const patientRegister = async (req, res) => {
   
       
       // Check if username or email already exists
-      const existingUser = await User.findOne({ patient_email:req.body.patient_email});
+      const existingUser = await User.findOne({ patient_email});
       if (existingUser) {
         return res.status(400).json({ message: "Username or Email already taken" });
       }
