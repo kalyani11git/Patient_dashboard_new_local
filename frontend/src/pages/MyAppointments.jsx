@@ -42,16 +42,27 @@ const MyAppointments = () => {
   const displayedAppointments = activeTab === "upcoming" ? upcomingAppointments : pastAppointments;
 
   return (
-    <div className="px-6 py-6 max-w-5xl mx-auto">
+    <div className="px-6 py-6 max-w-7xl mx-auto"> {/* Increased max-width for a wider layout */}
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Appointments</h2>
-        <button
-          onClick={() => navigate("/appointments")}
-          className="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-lg text-sm"
-        >
-          + New Appointment
-        </button>
+        
+        <div className="flex gap-3">
+          <button
+            onClick={() => navigate("/doctor-availability")}
+            className="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-lg text-sm"
+          >
+            Doctor Availability
+          </button>
+          
+          <button
+            onClick={() => navigate("/appointments")}
+            className="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-lg text-sm"
+          >
+            + New Appointment
+          </button>
+        </div>
       </div>
+
 
       <div className="flex border-b border-gray-300 dark:border-gray-700 mb-4">
         <button
@@ -72,10 +83,10 @@ const MyAppointments = () => {
         <table className="w-full text-left border-collapse">
           <thead>
             <tr className="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200">
-              <th className="px-6 py-3">Doctor</th>
-              <th className="px-6 py-3">Date & Time</th>
-              <th className="px-6 py-3">Notes</th>
-              <th className="px-6 py-3 text-right">Actions</th>
+              <th className="px-8 py-4">Doctor</th>
+              <th className="px-8 py-4">Date & Time</th>
+              <th className="px-8 py-4">Notes</th>
+              <th className="px-8 py-4 text-right">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -88,8 +99,8 @@ const MyAppointments = () => {
             ) : (
               displayedAppointments.map((appointment) => (
                 <tr key={appointment._id} className="border-t border-gray-300 dark:border-gray-700">
-                  <td className="px-6 py-4 flex items-center space-x-4">
-                    <div className="h-10 w-10 flex items-center justify-center bg-teal-500 text-white rounded-full font-bold">
+                  <td className="px-8 py-4 flex items-center space-x-4">
+                    <div className="h-12 w-12 flex items-center justify-center bg-teal-500 text-white rounded-full font-bold">
                       {appointment.doctor.split(" ").map((n) => n[0]).join("")}
                     </div>
                     <div>
@@ -97,7 +108,7 @@ const MyAppointments = () => {
                       <p className="text-sm text-gray-500 dark:text-gray-400">{appointment.department}</p>
                     </div>
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-8 py-4">
                     <p className="text-gray-900 dark:text-gray-100">
                       {new Date(appointment.date).toLocaleDateString("en-US", {
                         month: "long",
@@ -107,8 +118,8 @@ const MyAppointments = () => {
                     </p>
                     <p className="text-gray-500 dark:text-gray-400">{appointment.time}</p>
                   </td>
-                  <td className="px-6 py-4 text-gray-700 dark:text-gray-300">{appointment.notes || "-"}</td>
-                  <td className="px-6 py-4 text-right">
+                  <td className="px-8 py-4 text-gray-700 dark:text-gray-300">{appointment.notes || "-"}</td>
+                  <td className="px-8 py-4 text-right">
                     {activeTab === "upcoming" ? (
                       <>
                         <button
