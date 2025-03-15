@@ -78,9 +78,9 @@ const AppointmentBooking = ({ darkMode }) => {
 
   return (
     <div className="px-6 py-4 mt-16">
-     <div
-        className={`max-w-lg mx-auto p-6 rounded-xl shadow-lg transition-all 
-          ${darkMode ? "bg-dark text-white border border-gray-700" : "bg-white text-gray-900 border border-gray-200"}
+      <div
+        className={`max-w-lg mx-auto p-6 rounded-xl shadow-xl transition-all border-2 
+          ${darkMode ? "bg-dark text-white border-[#64CCC5]" : "bg-white text-gray-900 border-[#64CCC5]"}
         `}
       >
         <div className="flex justify-between items-center mb-3">
@@ -94,91 +94,76 @@ const AppointmentBooking = ({ darkMode }) => {
             My Appointments
           </button>
         </div>
-
+  
         {/* Form */}
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="block text-sm font-medium">First Name</label>
-              <input type="text" name="firstName" value={appointment.firstName} className="border p-2 rounded-lg w-full text-sm" onChange={handleChange} required />
+              <input type="text" name="firstName" value={appointment.firstName} className="border-2 border-[#64CCC5] p-2 rounded-lg w-full text-sm shadow-md" onChange={handleChange} required />
             </div>
             <div>
               <label className="block text-sm font-medium">Last Name</label>
-              <input type="text" name="lastName" value={appointment.lastName} className="border p-2 rounded-lg w-full text-sm" onChange={handleChange} required />
+              <input type="text" name="lastName" value={appointment.lastName} className="border-2 border-[#64CCC5] p-2 rounded-lg w-full text-sm shadow-md" onChange={handleChange} required />
             </div>
           </div>
-
+  
           <div className="grid grid-cols-2 gap-3 mt-3">
             <div>
               <label className="block text-sm font-medium">Mobile Number</label>
-              <input type="text" name="mobile" value={appointment.mobile} className="border p-2 rounded-lg w-full text-sm" onChange={handleChange} required />
+              <input type="text" name="mobile" value={appointment.mobile} className="border-2 border-[#64CCC5] p-2 rounded-lg w-full text-sm shadow-md" onChange={handleChange} required />
             </div>
             <div>
               <label className="block text-sm font-medium">Email</label>
-              <input type="email" name="email" value={appointment.email} className="border p-2 rounded-lg w-full text-sm" onChange={handleChange} required />
+              <input type="email" name="email" value={appointment.email} className="border-2 border-[#64CCC5] p-2 rounded-lg w-full text-sm shadow-md" onChange={handleChange} required />
             </div>
           </div>
-
+  
           <div className="mt-3">
             <label className="block text-sm font-medium">Gender</label>
-            <select name="gender" value={appointment.gender} className="border p-2 rounded-lg w-full text-sm" onChange={handleChange} required>
+            <select name="gender" value={appointment.gender} className="border-2 border-[#64CCC5] p-2 rounded-lg w-full text-sm shadow-md" onChange={handleChange} required>
               <option value="">Select Gender</option>
               {genders.map((gender) => (
                 <option key={gender} value={gender}>{gender}</option>
               ))}
             </select>
           </div>
-
+  
           <div className="grid grid-cols-2 gap-3 mt-3">
             <div>
               <label className="block text-sm font-medium">Appointment Date</label>
-              <input type="date" name="date" value={appointment.date} className="border p-2 rounded-lg w-full text-sm" onChange={handleChange} required />
+              <input type="date" name="date" value={appointment.date} className="border-2 border-[#64CCC5] p-2 rounded-lg w-full text-sm shadow-md" onChange={handleChange} required />
             </div>
             <div>
               <label className="block text-sm font-medium">Appointment Time</label>
-              <select name="time" value={appointment.time} className="border p-2 rounded-lg w-full text-sm" onChange={handleChange} required>
-                <option value="">Select Time</option>
-                {times.map((time) => (
-                  <option key={time} value={time}>{time}</option>
-                ))}
-              </select>
+              <input type="time" name="time" value={appointment.time} className="border-2 border-[#64CCC5] p-2 rounded-lg w-full text-sm shadow-md" onChange={handleChange} required />
             </div>
           </div>
-
+  
           <div className="mt-3">
             <label className="block text-sm font-medium">Department</label>
-            <select name="department" value={appointment.department} className="border p-2 rounded-lg w-full text-sm" onChange={handleChange} required>
-              <option value="">Choose a Department</option>
-              {Object.keys(departments).map((dept) => (
-                <option key={dept} value={dept}>{dept}</option>
-              ))}
-            </select>
+            <input type="text" name="department" value={appointment.department} className="border-2 border-[#64CCC5] p-2 rounded-lg w-full text-sm shadow-md" onChange={handleChange} required />
           </div>
-
+  
           <div className="mt-3">
             <label className="block text-sm font-medium">Doctor</label>
-            <select name="doctor" value={appointment.doctor} className="border p-2 rounded-lg w-full text-sm" onChange={handleChange} required>
-              <option value="">Choose a Doctor</option>
-              {appointment.department &&
-                departments[appointment.department].map((doctor) => (
-                  <option key={doctor} value={doctor}>{doctor}</option>
-                ))}
-            </select>
+            <input type="text" name="doctor" value={appointment.doctor} className="border-2 border-[#64CCC5] p-2 rounded-lg w-full text-sm shadow-md" onChange={handleChange} required />
           </div>
-
+  
           {/* Have You Visited Before? Checkbox */}
           <div className="mt-3 flex items-center">
             <input type="checkbox" name="visitedBefore" checked={appointment.visitedBefore} onChange={handleChange} className="mr-2" />
             <label className="text-sm">Have you visited before?</label>
           </div>
-
-          <button type="submit" className="w-full bg-[#64CCC5] hover:bg-[#4DA9A5] text-white font-bold py-2 px-3 rounded-lg text-sm mt-4">
+  
+          <button type="submit" className="w-full bg-[#64CCC5] hover:bg-[#4DA9A5] text-white font-bold py-2 px-3 rounded-lg text-sm mt-4 shadow-lg">
             {appointment.booked ? "Reschedule Appointment" : "Book Appointment"}
           </button>
         </form>
       </div>
     </div>
   );
+
 };
 
 export default AppointmentBooking;
