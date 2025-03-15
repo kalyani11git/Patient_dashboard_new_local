@@ -12,6 +12,8 @@ import PatientRegistration from './pages/PatientRegistration'
 import ChatApp from './pages/ChatApp'; 
 import AppointmentBooking from "./pages/AppointmentBooking"; 
 import MyAppointments from "./pages/MyAppointments";
+import DoctorAvailability from "./components/DoctorAvailability";
+import DoctorBookingForm from "./components/DoctorBookingForm"; 
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
@@ -39,16 +41,18 @@ function AppContent({ darkMode, toggleDarkMode }) {
         {!isLoginPage && !isRegistrationPage && <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />}
         <main className="flex-1 overflow-y-auto bg-neutral-lightest dark:bg-dark-dark p-4">
           <Routes>
-            <Route path="/" element={<PatientLogin />} /> {/* Set PatientLogin as the default route */}
-            <Route path="/register" element={<PatientRegistration />} /> {/* Add PatientRegistration route */}
+            <Route path="/" element={<PatientLogin />} />
+            <Route path="/register" element={<PatientRegistration />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/appointments" element={<AppointmentBooking darkMode={darkMode} />} />
             <Route path="/my-appointments" element={<MyAppointments darkMode={darkMode}/>} />
+            <Route path="/doctor-availability" element={<DoctorAvailability />} />
+            <Route path="/doctor-form" element={<DoctorBookingForm />} />
             <Route path="/medical-history" element={<MedicalHistory />} />
             <Route path="/prescriptions" element={<Prescriptions />} />
-              <Route path="/profile" element={<Profile />} />
-           <Route path="/billing" element={<Billing />} />
-           <Route path="/live-chat" element={<ChatApp />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/billing" element={<Billing />} />
+            <Route path="/live-chat" element={<ChatApp />} />
           </Routes>
         </main>
       </div>
@@ -56,4 +60,4 @@ function AppContent({ darkMode, toggleDarkMode }) {
   );
 }
 
-export default App
+export default App;
