@@ -57,8 +57,6 @@ exports.rescheduleAppointment = async (req, res) => {
   }
 };
 
-
-
 // Cancel an appointment
 exports.cancelAppointment = async (req, res) => {
   try {
